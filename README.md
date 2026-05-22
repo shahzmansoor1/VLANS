@@ -9,18 +9,17 @@ Initially, we can see tha PC 7 in vlan 10 connected to switch two is unable to p
 
 So, in order to resolve this, we will make some cofigurations to ensure that the different PCs are able to communicate with each other.
 
-Firstly, we are going to ensure that the switch ports connected to each PC is in the correct vlan and the switchport mode is access:
-
-<img width="535" height="125" alt="image" src="https://github.com/user-attachments/assets/c113a5e6-2411-48e0-b868-2f40475f37ef" />
-
-<img width="566" height="186" alt="image" src="https://github.com/user-attachments/assets/58959db5-4df2-4039-bb58-d062e4725679" />
-
-Next, we have to ensure that the connection between switch one and switch two is configured as a trunk and allows the vlans to pass through. We also have to ensure that all three vlans exist on both switches:
+Firstly, we are going to ensure that the switch ports connected to each PC is in the correct vlan and the switchport mode is access.  We also have to ensure that all three vlans exist on both switches:
 
 <img width="522" height="230" alt="image" src="https://github.com/user-attachments/assets/db3121d2-7110-48a3-beef-39e616f70fa3" />
 
 <img width="528" height="227" alt="image" src="https://github.com/user-attachments/assets/81709046-1461-4421-9c60-f302755f5111" />
 
+Next, we have to ensure that the connection between switch one and switch two is configured as a trunk and allows the vlans to pass through:
+
+<img width="758" height="207" alt="image" src="https://github.com/user-attachments/assets/939d4478-be86-4815-80d1-2b3db763ea62" />
+
+<img width="516" height="120" alt="image" src="https://github.com/user-attachments/assets/c4a6218c-958c-49ec-9091-a5a439ece482" />
 
 Now, we have to ensure that the connection between switch two and router one has been configured as **router-on-a-stick** by ensuring that the interface on router one connected to switch two is divided into sub-interfaces and not in a shutdown state:
 
@@ -34,5 +33,9 @@ We also have to ensure that the interface on switch two that is connected to rou
 
 Lastly, we have to ensure that the sub-interfaces on router one are configured with the default gateway of the respective vlans we want to assign them to:
 
-<img width="510" height="161" alt="image" src="https://github.com/user-attachments/assets/c3a8ddad-e375-400c-90da-eb608c5606fc" />
+<img width="517" height="162" alt="image" src="https://github.com/user-attachments/assets/de80eec5-1994-46d9-9dc7-d6583c608439" />
+
+Now, I am able to ping PC3 in vlan 30 through PC7 in vlan 10:
+
+<img width="492" height="210" alt="image" src="https://github.com/user-attachments/assets/f6d03ce4-5282-4416-8c4a-df401c8f58c3" />
 
